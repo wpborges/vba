@@ -38,14 +38,14 @@ Sub ImportarCSV()
     vArquivo = Application.GetOpenFilename(filefilter:="Arquivos CSV, *.csv")
 
     'Se arquivo for vazio para a macro
-    If (vArquivo = "" Or vArquivo = False) Then
+        If (vArquivo = (vbNullString) Or vArquivo = False) Then
         Exit Sub
     End If
     
     'Limpa os dados da planilha antes de importar
     Plan.Cells.ClearContents
     
-    vOutput = ""
+    vOutput = (vbNullString)
     vSeparador = ";"   'O separador pode ser ";" (ponto e vírgula) ou "," (vírgula), ou "|" (pipe), ou vbTab (tab)
     Open vArquivo For Input As #1
     i = 1
